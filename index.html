@@ -127,6 +127,20 @@
       h1{font-size:78px}.lead{font-size:16px}.events,.rules,.features,.form{grid-template-columns:1fr}
       .field.full{grid-column:auto}.vip,.locinfo{padding:25px}.section-head{align-items:start;flex-direction:column}
       section{padding:70px 0}.hero-card{height:350px}.foot{align-items:flex-start;flex-direction:column}
+      .event-flyer {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.event-flyer::before {
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.90) 0%,
+    rgba(0,0,0,.25) 50%,
+    rgba(0,0,0,.05) 100%
+  );
+}
     }
   </style>
 </head>
