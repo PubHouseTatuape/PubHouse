@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="theme-color" content="#070707"/>
+  <meta name="description" content="PubHouse — Pub liberal no Tatuapé. Eventos, experiências, liberdade e respeito."/>
+  <title>PubHouse | Tatuapé</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070707; --bg2:#0d0d0f; --card:#111114; --text:#f5f5f5;
+      --muted:#a9a9b0; --red:#e10620; --red2:#8f0011; --gold:#d8aa56;
+      --line:rgba(255,255,255,.09); --shadow:0 24px 80px rgba(0,0,0,.45);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:
+      radial-gradient(circle at 85% 5%, rgba(225,6,32,.16), transparent 27rem),
+      radial-gradient(circle at 15% 35%, rgba(216,170,86,.06), transparent 22rem),
+      var(--bg);color:var(--text);font-family:Inter,Arial,sans-serif}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+    .container{width:min(1160px,calc(100% - 36px));margin:auto}
+    .nav{position:fixed;z-index:50;top:0;left:0;right:0;background:rgba(7,7,7,.72);
+      backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}
+    .navin{height:76px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{font-family:"Bebas Neue",sans-serif;font-size:34px;letter-spacing:2px}
+    .logo b{color:var(--red)}
+    .links{display:flex;gap:24px;align-items:center;font-size:14px;font-weight:600}
+    .links a{opacity:.82}.links a:hover{opacity:1;color:#fff}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border:0;
+      border-radius:999px;padding:14px 21px;font-weight:800;cursor:pointer;transition:.2s}
+    .btn-primary{background:linear-gradient(135deg,var(--red),#ff3150);box-shadow:0 12px 30px rgba(225,6,32,.24)}
+    .btn-primary:hover{transform:translateY(-2px);filter:brightness(1.07)}
+    .btn-outline{border:1px solid var(--line);background:rgba(255,255,255,.035)}
+    .hero{min-height:790px;display:grid;place-items:center;padding:125px 0 70px;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:auto -15% -40% 35%;height:70%;background:var(--red);
+      filter:blur(170px);opacity:.14;transform:rotate(-8deg)}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:58px;position:relative;z-index:1}
+    .eyebrow{display:inline-flex;gap:9px;align-items:center;border:1px solid rgba(216,170,86,.3);
+      background:rgba(216,170,86,.06);color:#efd39d;padding:9px 13px;border-radius:999px;
+      text-transform:uppercase;font-size:12px;letter-spacing:1.8px;font-weight:800}
+    h1,h2,h3{margin:0}
+    h1{font-family:"Bebas Neue",sans-serif;font-size:clamp(70px,10vw,132px);line-height:.82;
+      letter-spacing:1px;margin:26px 0 22px}
+    h1 span{color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.42)}
+    .lead{color:#c6c6cb;font-size:18px;line-height:1.75;max-width:650px}
+    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
+    .hero-card{height:580px;border-radius:30px;border:1px solid var(--line);position:relative;overflow:hidden;
+      background:
+      linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.74)),
+      radial-gradient(circle at 65% 30%,rgba(225,6,32,.72),transparent 24%),
+      linear-gradient(145deg,#19191f,#09090b 62%);
+      box-shadow:var(--shadow)}
+    .hero-card:before{content:"PUBHOUSE";position:absolute;font-family:"Bebas Neue";font-size:110px;
+      letter-spacing:7px;transform:rotate(-90deg);right:-137px;top:218px;color:rgba(255,255,255,.035)}
+    .hero-card .ring{position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%}
+    .ring.r1{width:390px;height:390px;right:-80px;top:50px}.ring.r2{width:270px;height:270px;right:-20px;top:110px}
+    .hero-info{position:absolute;left:28px;right:28px;bottom:28px;background:rgba(10,10,12,.62);
+      backdrop-filter:blur(16px);padding:22px;border-radius:20px;border:1px solid var(--line)}
+    .hero-info small{color:var(--gold);font-weight:800;letter-spacing:1px}
+    .hero-info strong{display:block;font-size:25px;margin-top:6px}
+    section{padding:92px 0}
+    .section-head{display:flex;justify-content:space-between;align-items:end;gap:30px;margin-bottom:34px}
+    .kicker{color:var(--red);font-size:13px;font-weight:800;letter-spacing:2px;text-transform:uppercase}
+    h2{font-family:"Bebas Neue";font-size:clamp(46px,7vw,76px);line-height:.95;margin-top:9px;letter-spacing:.6px}
+    .muted{color:var(--muted);line-height:1.7}
+    .events{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .event{min-height:430px;border:1px solid var(--line);border-radius:24px;padding:24px;display:flex;
+      flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;background:#101014}
+    .event:before{content:"";position:absolute;inset:0;background:
+      radial-gradient(circle at 70% 20%,rgba(225,6,32,.72),transparent 28%),
+      linear-gradient(160deg,#24242c 0%,#101014 50%,#050506 100%);transition:.35s}
+    .event:hover:before{transform:scale(1.06)}
+    .event:nth-child(2):before{background:radial-gradient(circle at 25% 20%,rgba(216,170,86,.55),transparent 27%),linear-gradient(160deg,#231c15,#0d0d0f 65%)}
+    .event:nth-child(3):before{background:radial-gradient(circle at 75% 22%,rgba(128,0,255,.45),transparent 26%),linear-gradient(160deg,#21122d,#0c0c0f 63%)}
+    .event > *{position:relative;z-index:1}.date{font-size:12px;color:#ddd;font-weight:800;letter-spacing:1px}
+    .event h3{font-family:"Bebas Neue";font-size:42px;line-height:.95;margin:9px 0}
+    .badge{align-self:flex-start;font-size:11px;font-weight:800;background:rgba(255,255,255,.1);padding:7px 10px;border-radius:999px}
+    .about{display:grid;grid-template-columns:.92fr 1.08fr;gap:46px;align-items:center}
+    .about-visual{aspect-ratio:4/5;border-radius:28px;border:1px solid var(--line);background:
+      linear-gradient(135deg,rgba(225,6,32,.16),transparent 38%),
+      linear-gradient(160deg,#1b1b20,#08080a);position:relative;overflow:hidden}
+    .about-visual:before,.about-visual:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.12);
+      width:390px;height:390px;border-radius:50%;left:-140px;bottom:-90px}
+    .about-visual:after{width:270px;height:270px;left:-80px;bottom:-30px}
+    .about-label{position:absolute;left:24px;bottom:24px;background:rgba(7,7,7,.65);border:1px solid var(--line);
+      backdrop-filter:blur(14px);border-radius:18px;padding:18px 20px}
+    .about-label b{font-family:"Bebas Neue";font-size:30px}
+    .features{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:30px}
+    .feature{border:1px solid var(--line);background:rgba(255,255,255,.025);border-radius:16px;padding:16px}
+    .feature b{display:block;margin-bottom:5px}.feature span{color:var(--muted);font-size:13px}
+    .vip{border:1px solid rgba(225,6,32,.25);background:linear-gradient(145deg,rgba(225,6,32,.12),rgba(255,255,255,.025));
+      border-radius:28px;padding:42px;display:grid;grid-template-columns:.85fr 1.15fr;gap:42px}
+    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
+    label{font-size:12px;color:#bbb;font-weight:700}
+    input,select{width:100%;padding:15px 16px;border-radius:13px;border:1px solid var(--line);background:#0b0b0e;color:white;outline:none}
+    input:focus,select:focus{border-color:rgba(225,6,32,.75)}
+    .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .rule{border:1px solid var(--line);background:var(--card);padding:25px;border-radius:20px}
+    .rule .num{font-family:"Bebas Neue";font-size:34px;color:var(--red)}
+    .rule h3{margin:8px 0 7px}.rule p{margin:0;color:var(--muted);font-size:14px;line-height:1.6}
+    .location{display:grid;grid-template-columns:.85fr 1.15fr;border:1px solid var(--line);border-radius:28px;overflow:hidden;background:var(--card)}
+    .locinfo{padding:42px}.map{min-height:420px;background:#0a0a0c}
+    iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.08) brightness(.7)}
+    footer{padding:36px 0;border-top:1px solid var(--line);color:#8f8f97;font-size:13px}
+    .foot{display:flex;justify-content:space-between;gap:20px;align-items:center}
+    .wa{position:fixed;right:20px;bottom:20px;z-index:40;background:#25d366;color:#06120a;
+      width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-weight:900;
+      box-shadow:0 14px 36px rgba(0,0,0,.4)}
+    .age{position:fixed;inset:0;background:rgba(0,0,0,.88);backdrop-filter:blur(12px);z-index:100;
+      display:grid;place-items:center;padding:18px}
+    .age-card{max-width:480px;background:#101014;border:1px solid var(--line);border-radius:26px;padding:34px;text-align:center}
+    .age-card .logo{margin-bottom:15px}.age-card p{color:var(--muted);line-height:1.65}
+    .age-actions{display:flex;gap:10px;justify-content:center;margin-top:22px;flex-wrap:wrap}
+    .menu{display:none}
+    @media(max-width:900px){
+      .links{display:none}.menu{display:block}.hero{min-height:auto}.hero-grid,.about,.vip,.location{grid-template-columns:1fr}
+      .hero-card{height:420px}.events,.rules{grid-template-columns:1fr 1fr}.location .map{min-height:350px}
+    }
+    @media(max-width:620px){
+      .container{width:min(100% - 24px,1160px)}.navin{height:66px}.hero{padding-top:98px}
+      h1{font-size:78px}.lead{font-size:16px}.events,.rules,.features,.form{grid-template-columns:1fr}
+      .field.full{grid-column:auto}.vip,.locinfo{padding:25px}.section-head{align-items:start;flex-direction:column}
+      section{padding:70px 0}.hero-card{height:350px}.foot{align-items:flex-start;flex-direction:column}
+    }
+  </style>
+</head>
+<body>
+<div class="age" id="ageGate">
+  <div class="age-card">
+    <div class="logo">PUB<b>HOUSE</b></div>
+    <h3>Conteúdo para maiores de 18 anos</h3>
+    <p>Ao entrar, você confirma que possui 18 anos ou mais e concorda em respeitar as regras de privacidade e consentimento da casa.</p>
+    <div class="age-actions">
+      <button class="btn btn-primary" onclick="enterSite()">Tenho 18 anos ou mais</button>
+      <button class="btn btn-outline" onclick="leaveSite()">Sair</button>
+    </div>
+  </div>
+</div>
+
+<header class="nav">
+  <div class="container navin">
+    <a class="logo" href="#inicio">PUB<b>HOUSE</b></a>
+    <nav class="links">
+      <a href="#eventos">Eventos</a><a href="#casa">A casa</a><a href="#lista">Lista</a>
+      <a href="#regras">Regras</a><a href="#localizacao">Localização</a>
+      <a class="btn btn-primary" href="#lista">Entrar na lista</a>
+    </nav>
+    <a class="menu btn btn-outline" href="#eventos">Menu</a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">✦ Tatuapé • São Paulo</div>
+      <h1>VIVA<br><span>SEM RÓTULOS.</span></h1>
+      <p class="lead">Uma experiência liberal com atmosfera de lounge, música, encontros e liberdade com respeito. Conheça o PubHouse.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#eventos">Ver próximos eventos</a>
+        <a class="btn btn-outline" href="#lista">Colocar nome na lista</a>
+      </div>
+    </div>
+    <div class="hero-card" aria-label="Destaque visual PubHouse">
+      <div class="ring r1"></div><div class="ring r2"></div>
+      <div class="hero-info"><small>PRÓXIMA EXPERIÊNCIA</small><strong>Uma noite para sair da rotina.</strong></div>
+    </div>
+  </div>
+</section>
+
+<section id="eventos">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">Agenda</div><h2>PRÓXIMOS EVENTOS</h2></div>
+      <p class="muted">Troque estes cards pelos flyers reais da semana.</p>
+    </div>
+    <div class="events">
+      <article class="event"><div class="date">QUARTA • 22H</div><h3>QUARTA<br>SEM LEI</h3><span class="badge">VER DETALHES</span></article>
+      <article class="event"><div class="date">QUINTA • 22H</div><h3>QUINTA DA<br>TENTAÇÃO</h3><span class="badge">VER DETALHES</span></article>
+      <article class="event"><div class="date">SÁBADO • 22H</div><h3>NOITE<br>ESPECIAL</h3><span class="badge">VER DETALHES</span></article>
+    </div>
+  </div>
+</section>
+
+<section id="casa">
+  <div class="container about">
+    <div class="about-visual"><div class="about-label"><small>CONHEÇA</small><br><b>O PUBHOUSE</b></div></div>
+    <div>
+      <div class="kicker">A experiência</div><h2>UM PUB LIBERAL<br>COM IDENTIDADE.</h2>
+      <p class="muted">Ambiente pensado para quem quer sair da rotina em um espaço reservado, acolhedor e adulto. Música, bar, áreas de convivência e experiências com privacidade e respeito.</p>
+      <div class="features">
+        <div class="feature"><b>Privacidade</b><span>Experiência discreta e ambiente adulto.</span></div>
+        <div class="feature"><b>Bar & Lounge</b><span>Drinks, música e clima de pub.</span></div>
+        <div class="feature"><b>Eventos</b><span>Programação temática durante a semana.</span></div>
+        <div class="feature"><b>Consentimento</b><span>Respeito vem antes de qualquer interação.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="lista">
+  <div class="container vip">
+    <div><div class="kicker">Entrada</div><h2>SEU NOME<br>NA LISTA</h2>
+      <p class="muted">Preencha os dados e o site abre uma mensagem pronta no WhatsApp da casa. Você pode alterar o número no código em menos de 1 minuto.</p>
+    </div>
+    <form class="form" onsubmit="sendWhatsApp(event)">
+      <div class="field"><label>Nome</label><input id="nome" required placeholder="Seu nome"></div>
+      <div class="field"><label>WhatsApp</label><input id="telefone" required placeholder="(11) 99999-9999"></div>
+      <div class="field"><label>Perfil</label><select id="perfil"><option>Casal</option><option>Homem</option><option>Mulher</option></select></div>
+      <div class="field"><label>Evento / dia</label><input id="evento" placeholder="Ex.: Sábado"></div>
+      <div class="field full"><button class="btn btn-primary" style="width:100%">Enviar para o WhatsApp</button></div>
+    </form>
+  </div>
+</section>
+
+<section id="regras">
+  <div class="container">
+    <div class="section-head"><div><div class="kicker">Convivência</div><h2>REGRAS DA CASA</h2></div></div>
+    <div class="rules">
+      <div class="rule"><div class="num">01</div><h3>+18</h3><p>Entrada permitida apenas para maiores de 18 anos, mediante documento quando solicitado.</p></div>
+      <div class="rule"><div class="num">02</div><h3>Consentimento sempre</h3><p>Qualquer aproximação ou interação deve acontecer somente com consentimento claro de todos.</p></div>
+      <div class="rule"><div class="num">03</div><h3>Privacidade</h3><p>Respeite a privacidade dos demais frequentadores. Fotos e gravações dependem das regras da casa.</p></div>
+      <div class="rule"><div class="num">04</div><h3>Respeito</h3><p>Comportamento invasivo, agressivo, discriminatório ou desrespeitoso não faz parte do ambiente.</p></div>
+      <div class="rule"><div class="num">05</div><h3>Dress code</h3><p>Defina aqui o padrão de vestimenta e eventuais restrições específicas do PubHouse.</p></div>
+      <div class="rule"><div class="num">06</div><h3>Segurança</h3><p>As orientações da equipe e as regras internas devem ser seguidas durante toda a permanência.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="localizacao">
+  <div class="container location">
+    <div class="locinfo">
+      <div class="kicker">Onde estamos</div><h2>TATUAPÉ,<br>SÃO PAULO.</h2>
+      <p class="muted"><strong style="color:#fff">Praça Santa Terezinha, 28 — Tatuapé</strong><br>São Paulo — SP</p>
+      <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Pra%C3%A7a+Santa+Terezinha+28+Tatuap%C3%A9+S%C3%A3o+Paulo">Como chegar</a>
+    </div>
+    <div class="map"><iframe title="Mapa PubHouse" loading="lazy" src="https://www.google.com/maps?q=Pra%C3%A7a%20Santa%20Terezinha%2028%20Tatuap%C3%A9%20S%C3%A3o%20Paulo&output=embed"></iframe></div>
+  </div>
+</section>
+</main>
+
+<a class="wa" href="#" onclick="quickWhatsApp(event)" aria-label="WhatsApp">WA</a>
+
+<footer>
+  <div class="container foot"><div class="logo">PUB<b>HOUSE</b></div><div>© <span id="year"></span> PubHouse. Todos os direitos reservados. • Conteúdo +18.</div></div>
+</footer>
+
+<script>
+  // IMPORTANTE: troque pelo WhatsApp oficial do PubHouse, com DDI + DDD, apenas números.
+  const WHATSAPP = "5511999999999";
+
+  function enterSite(){ localStorage.setItem("pubhouse_18","yes"); document.getElementById("ageGate").style.display="none"; }
+  function leaveSite(){ window.location.href="https://www.google.com/"; }
+  if(localStorage.getItem("pubhouse_18")==="yes") document.getElementById("ageGate").style.display="none";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  function waUrl(text){ return `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(text)}`; }
+  function quickWhatsApp(e){ e.preventDefault(); window.open(waUrl("Olá! Quero informações sobre o PubHouse e os próximos eventos."),"_blank"); }
+  function sendWhatsApp(e){
+    e.preventDefault();
+    const nome=document.getElementById("nome").value;
+    const telefone=document.getElementById("telefone").value;
+    const perfil=document.getElementById("perfil").value;
+    const evento=document.getElementById("evento").value || "A definir";
+    const msg=`Olá! Quero colocar meu nome na lista do PubHouse.%0A%0ANome: ${nome}%0AWhatsApp: ${telefone}%0APerfil: ${perfil}%0AEvento/dia: ${evento}`;
+    window.open(`https://wa.me/${WHATSAPP}?text=${msg}`,"_blank");
+  }
+</script>
+</body>
+</html>
